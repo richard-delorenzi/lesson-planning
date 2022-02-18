@@ -1,0 +1,9 @@
+#!/bin/bash
+
+(
+    in_file="teaching-dependencies.ipynb"
+    cd output
+    ln -s -t . "../$in_file"
+    jupyter nbconvert --HTMLExporter.exclude_input=True --to html $in_file
+    rm "$in_file"
+)
